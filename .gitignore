@@ -1,0 +1,12 @@
+.DS_Store
+mart/**/*
+scratch.R
+template.qmd
+template.html
+template_files/**/*
+TODO.md
+.Rproj.user
+.Rprofile
+renv/**/*
+renv.lock
+*.Rproj

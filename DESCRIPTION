@@ -1,0 +1,18 @@
+Package: shopr
+Title: Gym for Replenishment Decisions of a Shop
+Version: 0.0.1
+Authors@R: 
+    person("Tim", "Radtke", , "tim@timradtke.net", role = c("aut", "cre"))
+Description: Use shopr to simulate sales and inventory of a shop and evaluate
+    the forecasts and replenishment decision you make for the shop.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.1)
+Imports:
+  arrow (>= 18.1.0),
+  dplyr (>= 1.1.0),
+  lubridate (>= 1.9.0),
+  tidyselect (>= 1.2.0)
