@@ -18,7 +18,9 @@ summarize_profitability <- function(df) {
     dplyr::summarize(
       Revenue = sum(revenue),
       CoGS = sum(cost_of_goods_sold),
-      `Inventory CoGS` = sum(inventory_cost_of_goods_sold),
+      `CoGS - Purchase` = sum(cogs_component_purchase),
+      `CoGS - Order` = sum(cogs_component_order),
+      `CoGS - Holding` = sum(cogs_component_holding),
       `Profit` = sum(profit),
       `Order Cost` = sum(order_cost),
       `Inventory Cost` = sum(inventory_cost),
