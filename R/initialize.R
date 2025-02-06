@@ -47,8 +47,11 @@ initialize <- function(path,
       sku = letters[1],
       open = FALSE,
       date_ordered = history_start_date,
-      date_received = history_start_date,
-      quantity = 0
+      # `date_received` has to be equal to the `batch` in inventory
+      date_received = current_date,
+      quantity = 0,
+      purchase_price = 1,
+      fixed_order_cost = 0
     ),
     products = data.frame(
       sku = letters[1:2],
@@ -137,12 +140,17 @@ initialize_from_file <- function(path,
         open = first_obs_date > current_date,
         date_ordered = history_start_date,
         date_received = dplyr::if_else(
-          first_obs_date > current_date, first_obs_date, history_start_date
+          first_obs_date > current_date, first_obs_date, current_date
         ),
         order = paste0(format(date_ordered, "%Y%m%d"), "/", sku)
       ) |>
+      dplyr::inner_join(
+        dplyr::select(products, sku, date, purchase_price, fixed_order_cost),
+        by = c("sku", date_ordered = "date")
+      ) |>
       dplyr::select(
-        order, sku, open, date_ordered, date_received, quantity = inventory
+        order, sku, open, date_ordered, date_received, quantity = inventory,
+        purchase_price, fixed_order_cost
       ),
     products = products |>
       dplyr::select(

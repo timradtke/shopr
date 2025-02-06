@@ -62,7 +62,9 @@ list_tables <- function() {
         arrow::field("open", arrow::boolean()),
         arrow::field("date_ordered", arrow::date32()),
         arrow::field("date_received", arrow::date32()),
-        arrow::field("quantity", arrow::float64())
+        arrow::field("quantity", arrow::float64()),
+        arrow::field("purchase_price", arrow::float64()),
+        arrow::field("fixed_order_cost", arrow::float64())
       )
     ),
     products = list(

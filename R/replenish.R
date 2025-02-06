@@ -32,7 +32,7 @@ check_order <- function() {
 create_outstanding_orders <- function(order, current_date, path) {
   orders_to_append <- open_table("products", path = path) |>
     dplyr::filter(date == current_date) |>
-    dplyr::select(sku, date, delivery_days) |>
+    dplyr::select(sku, date, delivery_days, purchase_price, fixed_order_cost) |>
     dplyr::filter(sku %in% order[["sku"]]) |>
     dplyr::collect() |>
     dplyr::mutate(
