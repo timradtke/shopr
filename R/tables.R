@@ -79,7 +79,10 @@ list_tables <- function() {
         arrow::field("delivery_days", arrow::int32()),
         arrow::field("minimum_order_quantity", arrow::int32()),
         arrow::field("lot_size", arrow::int32()),
-        arrow::field("fixed_order_cost", arrow::float64())
+        arrow::field("fixed_order_cost", arrow::float64()),
+        arrow::field("first_sell_date", arrow::date32()),
+        arrow::field("last_sell_date", arrow::date32()),
+        arrow::field("active", arrow::boolean())
       )
     ),
     hierarchy = list(

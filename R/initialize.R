@@ -62,7 +62,10 @@ initialize <- function(path,
       delivery_days = 7,
       minimum_order_quantity = 1,
       lot_size = 1,
-      fixed_order_cost = 0
+      fixed_order_cost = 0,
+      first_sell_date = min(dates),
+      last_sell_date = max(dates),
+      active = TRUE
     ),
     hierarchy = data.frame(
       sku = letters[1:2],
@@ -156,7 +159,8 @@ initialize_from_file <- function(path,
       dplyr::select(
         sku, date,
         stock_cost, purchase_price, sales_price, 
-        delivery_days, minimum_order_quantity, lot_size, fixed_order_cost
+        delivery_days, minimum_order_quantity, lot_size, fixed_order_cost,
+        first_sell_date, last_sell_date, active
       ),
     hierarchy = products |>
       dplyr::select(sku, emoji_image, emoji_group, emoji_version,
