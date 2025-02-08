@@ -1,6 +1,6 @@
 Package: shopr
 Title: Gym for Replenishment Decisions of a Shop
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     person("Tim", "Radtke", , "tim@timradtke.net", role = c("aut", "cre"))
 Description: Use shopr to simulate sales and inventory of a shop and evaluate
